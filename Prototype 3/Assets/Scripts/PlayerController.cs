@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
 {
 
     private Rigidbody playerRb;
+    public float jumpForce;
+    public float gravityModifier;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +19,8 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            playerRb.AddForce(Vector3.up * 10, ForceMode.Impulse);
+            playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            Physics.gravity *= gravityModifier;
         }
     }
 }
